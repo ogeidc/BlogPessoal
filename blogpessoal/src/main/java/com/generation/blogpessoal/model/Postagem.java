@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Postagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@NotNull
 	@Size(min = 5, max = 100)
@@ -39,7 +39,7 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

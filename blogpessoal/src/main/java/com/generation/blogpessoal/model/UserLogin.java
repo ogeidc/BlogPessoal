@@ -53,7 +53,7 @@ public class UserLogin {
 		Foto = foto;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return Id;
 	}
 

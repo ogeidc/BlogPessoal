@@ -5,20 +5,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity
 @Table(name ="tb_usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id;
+	private Long Id;
 	
 	@NotNull
 	@Size(min = 2, max = 100)
 	private String nome;
-	@NotNull
+	@Schema(example = "email@email.com.br")
+	@NotNull(message = "O atributo Usuario é obrigatório")
+	@Email(message = "O atributo usuario deve ser um email valido")
 	@Size(min = 5, max = 100)
 	private String usuario;
 	@NotNull
@@ -34,11 +39,12 @@ public class Usuario {
 		this.senha = senha;
 		this.Foto = foto;
 	}
+	public Usuario() {    } 
 
 	
 	//getters and setters
 	
-	public long getId() {
+	public Long getId() {
 		return Id;
 	}
 	public void setId(long id) {

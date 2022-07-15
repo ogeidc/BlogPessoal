@@ -50,14 +50,7 @@ public class UsuarioController {
 			.orElse(ResponseEntity.notFound().build());
 	}
 	
-	/**
-	 * Executa o método autenticarUsuario da classe de serviço para efetuar
-	 * o login na api. O método da classe Controladora checa se deu certo e
-	 * exibe as mensagens (Response Status) pertinentes. 
-	 * 
-	 * Caso o login tenha sido bem sucedido, os dados do usuário e o token 
-	 * são exibidos.
-	 */
+	
 	@PostMapping("/logar")
 	public ResponseEntity<UserLogin> login(@RequestBody Optional<UserLogin> usuarioLogin) {
 		return usuarioService.logarUsuario(usuarioLogin)
@@ -65,14 +58,7 @@ public class UsuarioController {
 			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
-	/**
-	 * Executa o método cadastrarUsuario da classe de serviço para criar
-	 * um novo usuário na api. O método da classe Controladora checa se 
-	 * deu certo e exibe as mensagens (Response Status) pertinentes. 
-	 * 
-	 * Caso cadastro tenha sido bem sucedido, os dados do usuário são 
-	 * exibidos.
-	 */
+	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
 
@@ -83,6 +69,5 @@ public class UsuarioController {
 	}
 	
 	
-	// metodo bonus - atualizar usuário.
 
 }
